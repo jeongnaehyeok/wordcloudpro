@@ -1,0 +1,1 @@
+web: gunicorn wordcloudpro.wsgi --log-file -
