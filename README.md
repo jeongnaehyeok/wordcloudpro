@@ -2,7 +2,7 @@
 
 ## 설명
 
-Python [한글 정보처리 패키지](https://konlpy-ko.readthedocs.io/ko/v0.4.3) 와 [워드 클라우드 패키지](https://github.com/amueller/word_cloud)를 사용하여 한국어 워드 클라우드 생성 웹페이지를 만들었다. 서버는 장고를 사용했고 배포는 heroku를 이용했다.
+Python [한글 정보처리 패키지](https://konlpy-ko.readthedocs.io/ko/v0.4.3) 와 [워드 클라우드 패키지](https://github.com/amueller/word_cloud)를 사용하여 한국어 워드 클라우드 생성 웹페이지를 만들었다. 서버는 장고를 사용했고 배포는 heroku를 이용했다. 
 
 ### Python
 
@@ -140,3 +140,15 @@ const checkForm = () => {
 워드 클라우드에서 처리를 마친 데이터를 Django에 저장을 못하는 이슈를 해결하지 못했다. 이로인해 static으로 이미지를 불러와야 했고, 로직상으로는 좋지 않은 방법이라는 것을 알고 있다. 그리고 워드 클라우드를 불러오고 만드는 시간동안 유저에게 보여주는 화면이 지루하다는 점이다. 로딩같은 화면을 보여주면 좋겠지만, Django에서 처리하는 방법을 더 찾아봐야겠다.
 
 다음 버전에는 views.result를 호출하면 기존에 있던 파일을 정리하는 기능을 넣을 것이다. 그리고 마스크 기능과 세부적인 설정을 더 추가할 예정이다.
+
+## 오류
+
+[한글 정보처리 패키지](https://konlpy-ko.readthedocs.io/ko/v0.4.3)은 JDK를 필요로 한다 따라서 그냥 배포를 하면 jvm을 찾지 못한다는 오류가 발생한다. 따라서 Buildpacks에 jvm을 추가해주고 `system.properties` 파일을 생성해주고 `java.runtime.version=1.8`을 추가해준다
+
+```bash
+$ heroku buildpacks:set heroku/jvm
+```
+
+```system.properties
+java.runtime.version=1.8
+```
