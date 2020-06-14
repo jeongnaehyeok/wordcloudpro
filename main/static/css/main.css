@@ -1,0 +1,41 @@
+/* form */
+.form_space_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form_space_center > p{
+    margin: 5px 0;
+}
+.submit_contain{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.submit_btn_contain{
+    width: 100%;
+}
+.submit_btn{
+    width: 100%;
+}
+
+/* 작은 기기들 (태블릿, 768px 이상) */
+@media(min-width: 768px) {
+    body{
+        
+    }
+}
+
+/* 중간 기기들 (데스크탑, 992px 이상) */
+@media(min-width: 992px) {
+    body{
+        
+    }
+}
+
+/* 큰 기기들 (큰 데스크탑, 1200px 이상) */
+@media(min-width: 1200px) {
+    body{
+        
+    }
+}

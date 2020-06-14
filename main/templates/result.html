@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/result.css' %}">
+{% endblock %}
+{% block contents %}
+<div class="contents well well-lg">
+    <div class="page-header">
+        <h1>워드 클라우드 <small>이미지를 누르면 저장됩니다</small></h1>
+    </div>
+    <div class="center_contain">
+        <a href="{{ img }}" class="center_contain" download="wordcloud">
+            <img src="{{ img }}" alt="결과" class="img_style">
+        </a>
+    </div>
+</div>
+{% endblock %}

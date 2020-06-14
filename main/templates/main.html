@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+{% block contents %}
+<div class="contents well well-lg">
+    <!-- PageHeader -->
+    <div class="page-header">
+        <h1>워드 클라우드 <small>텍스트로 이미지로 만들기</small></h1>
+    </div>
+    <!-- Form 입력창 -->
+    <form class="form-horizontal" action="{% url 'result' %}" method="POST" onsubmit="return checkForm()">
+        {% csrf_token %}
+        <!-- 글자색 -->
+        <div class="form-group">
+            <label for="word_color" class="col-sm-1 control-label">글자색</label>
+            <div class="col-sm-11">
+                <select class="form-control" id="word_color" name="word_color" placeholder="word_color">
+                    <option>rainbow</option>
+                    <option>Accent</option>
+                    <option>Dark2</option>
+                    <option>seismic</option>
+                    <option>binary</option>
+                    <option>spring</option>
+                    <option>summer</option>
+                    <option>autumn</option>
+                    <option>winter</option>
+                    <option>ocean</option>
+                    <option>cool</option>
+                    <option>coolwarm</option>
+                    <option>hot</option>
+                    <option>Reds</option>
+                    <option>Blues</option>
+                    <option>Orange</option>
+                    <option>Greens</option>
+                    <option>Gray</option>
+                </select>
+            </div>
+        </div>
+        <!-- 폰트 -->
+        <div class="form-group">
+            <label for="word_font" class="col-sm-1 control-label">글꼴</label>
+            <div class="col-sm-11">
+                <select class="form-control" id="word_font" name="word_font" placeholder="word_font">
+                    <option value="NanumBarunGothic">나눔 바른고딕</option>
+                    <option value="NanumGothic">나눔 고딕</option>
+                    <option value="NanumSquareRegular">나눔 스퀘어</option>
+                    <option value="NEXONLv1GothicRegular">넥슨 Lv.1 고딕</option>
+                </select>
+            </div>
+        </div>
+        <!-- 배경색 -->
+        <div class="form-group">
+            <label for="word_background" class="col-sm-1 control-label">배경색</label>
+            <div class="col-sm-11">
+                <input class="form-control" type='color' id='word_background' name='word_background' value='#FFFFFF'>
+            </div>
+        </div>
+        <!-- 마스크 -->
+        <!-- 크기 -->
+        <div class="form-group">
+            <label for="word_font" class="col-sm-1 control-label">크기</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" placeholder="가로(최대: 1200, 최소: 100)" id="word_width" name="word_width">
+            </div>
+            <div class="col-sm-1 form_space_center">
+                <p>&#10005</p>
+            </div>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" placeholder="세로(최대: 1200, 최소: 100)" id="word_height" name="word_height">
+            </div>
+        </div>
+        <!-- 단어수 -->
+        <div class="form-group">
+            <label for="word_nuber" class="col-sm-1 control-label">단어수</label>
+            <div class="col-sm-11">
+                <input type="text" class="form-control" placeholder="단어수(200개 이하로 입력해 주세요)" id="word_nuber" name="word_nuber">
+            </div>
+        </div>
+        <!-- 입력 -->
+        <div class="form-group">
+            <label for="word_font" class="col-sm-1 control-label">내용</label>
+            <div class="col-sm-11">
+                <textarea class="form-control" rows="5" placeholder="텍스트를 입력해 주세요" id="word_string" name="word_string"></textarea>
+            </div>
+        </div>
+        <!-- 제출 -->
+        <div class="submit_btn_contain">
+            <button type="submit" class="btn btn-default submit_btn">제출</button>
+        </div>
+    </form>
+</div>
+<div class="contents well well-lg">
+    <!-- PageHeader -->
+    <div class="page-header">
+        <h1>글꼴</h1>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">나눔 바른고딕 : <a>https://hangeul.naver.com/2017/nanum</a></li>
+        <li class="list-group-item">나눔 고딕 : <a>https://hangeul.naver.com/2017/nanum</a></li>
+        <li class="list-group-item">나눔 스퀘어 : <a>https://hangeul.naver.com/2017/nanum</a></li>
+        <li class="list-group-item">넥슨 Lv.1 고딕 : <a>http://levelup.nexon.com/font/index.aspx?page=1</a></li>
+    </ul>
+</div>
+<div class="contents well well-lg">
+    <!-- PageHeader -->
+    <div class="page-header">
+        <h1>버그 제보</h1>
+    </div>
+    <p>cnh0301@gmail.com</p>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'js/validate.js' %}"></script>
+{% endblock %}

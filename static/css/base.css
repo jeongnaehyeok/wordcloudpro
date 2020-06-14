@@ -1,0 +1,40 @@
+html {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.center_contain{
+    width: 100%;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.img_contain{
+    max-width: 100%;
+}
+body{
+    background-color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    color: #2c3e50;
+}
+.body_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1024px;
+    width: 100%;
+    background-color: white;
+}
+/* header */
+header{
+    width: 100%;
+}
+
+/* contents */
+.contents{
+    width: 90%;
+}
+.page-header, .page-header > h1{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
